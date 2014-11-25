@@ -1,0 +1,5 @@
+/* CSS declarations go here */
+
+#playingArea select {
+    min-width: 100px;
+}

@@ -1,0 +1,69 @@
+<head>
+    <title>cards</title>
+</head>
+
+<body>
+    <div id="gameControls">
+        {{> createGame}}
+        <input type="text" id="gameId" placeholder="Enter Game ID to join"/>
+        {{> joinGame}}
+    </div>
+
+    <div id="gameInfo">
+        {{> gameInfo}}
+    </div>
+
+    {{> getCards}}
+
+
+
+    <div id="playingArea">
+        <select id="hand" size="10">
+            {{> playerCards}}
+        </select>
+
+        {{> passCard}}
+
+        <select id="players" size="10">
+            {{> playerList}}
+        </select>
+    </div>
+</body>
+
+<template name="createGame">
+  <button>Start New Game</button>
+</template>
+
+<template name="joinGame">
+    <button>Join Game</button>
+</template>
+
+<template name="getCards">
+    <button>Get Cards</button>
+</template>
+
+<template name="playerCards">
+    {{#each getPlayerCards}}
+        <option value={{id}}>{{text}}</option>
+    {{/each}}
+</template>
+
+<template name="handSize">
+    {{getHandSize}}
+</template>
+
+<template name="gameInfo">
+    Current Game: {{currentGame}}<br>
+    Player ID: {{playerId}}<br>
+    Hand ID: {{handId}}<br>
+</template>
+
+<template name="playerList">
+    {{#each getPlayerList}}
+        <option value={{_id}}>{{_id}}</option>
+    {{/each}}
+</template>
+
+<template name="passCard">
+    <button>Pass Card</button>
+</template>
